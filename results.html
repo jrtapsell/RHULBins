@@ -23,7 +23,7 @@
         const data = await dataPromise
         const template = await templatePromise
 
-        document.body.innerHTML = template(data)
+        document.body.innerHTML = template(data[0])
       })()
     </script>
 </body>
