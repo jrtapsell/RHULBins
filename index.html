@@ -3,28 +3,43 @@
     <title>
 
     </title>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.2.0/handlebars.min.js"
+            integrity="sha256-fIuSfP8oRbwWG9pRr+FaGfBU62kYY+7YqUsXSCgnYqM="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <form action="#" id="searchForm">
     <label for="postcode">Postcode</label><input id="postcode" />
     <input type="submit" value="Submit"/>
 </form>
+<div id="searchResults"></div>
 <script>
-    const submitForm = document.querySelector("#searchForm")
-    const postcodeInput = document.querySelector("#postcode")
+  (async () => {
+      const submitForm = document.querySelector("#searchForm")
+      const postcodeInput = document.querySelector("#postcode")
+      const searchResultsDiv = document.querySelector("#searchResults")
 
-    async function redrawSearch(search) {
+      const searchTemplatePromise = fetch("/searchResults.hbs")
+
+      async function redrawSearch (search) {
         const encodedSearch = encodeURIComponent(search)
         const payload = await fetch('/api/search_addresses.php?query=' + encodedSearch)
         const payloadData = await payload.json()
-        console.log(payloadData)
-    }
 
-    submitForm.onsubmit = (e) => {
+        const searchTemplate = await searchTemplatePromise
+
+        const template = Handlebars.compile(searchTemplate)
+
+        searchResultsDiv.innerHTML = template(payloadData)
+      }
+
+      submitForm.onsubmit = (e) => {
         redrawSearch(postcodeInput.value)
         e.preventDefault()
         return false
-    }
+      }
+    })()
 </script>
 </body>
 </html>
