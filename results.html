@@ -10,7 +10,21 @@
 </head>
 <body>
     <script>
-        console.log(window.location)
+      (async () => {
+        const id = window.location.pathname.substring(1)
+
+        const templatePromise = fetch("/results.hbs")
+          .then(p => p.text())
+          .then(p => Handlebars.compile(p))
+
+        const dataPromise = fetch("/api/lookup_bin_days.php?query=" + id)
+          .then(p => p.json())
+
+        const data = await dataPromise
+        const template = await templatePromise
+
+        document.body.innerHTML = template(data)
+      })()
     </script>
 </body>
 </html>
