@@ -12,8 +12,16 @@
 <script>
     const submitForm = document.querySelector("#searchForm")
     const postcodeInput = document.querySelector("#postcode")
+
+    async function redrawSearch(search) {
+        const encodedSearch = encodeURIComponent(search)
+        const payload = await fetch('/api/search_addresses.php?query=' + encodedSearch)
+
+        console.log(payload)
+    }
+
     submitForm.onsubmit = (e) => {
-        alert(postcodeInput.value)
+        redrawSearch(postcodeInput.value)
         e.preventDefault()
         return false
     }
