@@ -20,16 +20,16 @@
       const postcodeInput = document.querySelector("#postcode")
       const searchResultsDiv = document.querySelector("#searchResults")
 
-      const searchTemplatePromise = fetch("/searchResults.hbs")
+      const templatePromise = fetch("/searchResults.hbs")
+        .then(p => p.text())
+        .then(p => Handlebars.compile(P))
 
       async function redrawSearch (search) {
         const encodedSearch = encodeURIComponent(search)
         const payload = await fetch('/api/search_addresses.php?query=' + encodedSearch)
         const payloadData = await payload.json()
 
-        const searchTemplate = await searchTemplatePromise
-
-        const template = Handlebars.compile(searchTemplate)
+        const template = await templatePromise
 
         searchResultsDiv.innerHTML = template(payloadData)
       }
