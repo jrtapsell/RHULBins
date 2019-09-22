@@ -22,7 +22,7 @@
 
       const templatePromise = fetch("/searchResults.hbs")
         .then(p => p.text())
-        .then(p => Handlebars.compile(P))
+        .then(p => Handlebars.compile(p))
 
       async function redrawSearch (search) {
         const encodedSearch = encodeURIComponent(search)
