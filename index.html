@@ -32,6 +32,14 @@
         const template = await templatePromise
 
         searchResultsDiv.innerHTML = template(payloadData)
+
+        (new Array(...document.querySelectorAll(".searchResultsRow")))
+          .forEach((element) => {
+                element.onclick = () => {
+                  console.log(element)
+                }
+            })
+
       }
 
       submitForm.onsubmit = (e) => {
