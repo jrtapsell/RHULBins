@@ -1,1 +1,2 @@
 /api/* https://maps.runnymede.gov.uk/website/myrunnymede/php/:splat 200
+/* /results.html?:splat 200
