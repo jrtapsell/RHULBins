@@ -12,8 +12,9 @@
 <script>
     const submitForm = document.querySelector("#searchForm")
     const postcodeInput = document.querySelector("#postcode")
-    submitForm.onsubmit = () => {
+    submitForm.onsubmit = (e) => {
         alert(postcodeInput.value())
+        e.preventDefault()
         return false
     }
 }
