@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="https://www.jrtapsell.co.uk/res/mdl/custom.css"/>
 </head>
 <body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">RHUL Bins</span>
+        </div>
+    </header>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div id="searchResults"></div>
+        </div>
+    </main>
+</div>
     <script>
       (async () => {
         const id = window.location.pathname.substring(1)
@@ -24,7 +37,8 @@
         const data = await dataPromise
         const template = await templatePromise
 
-        document.body.innerHTML = template(data[0])
+        
+        document.querySelector("#searchResults").innerHTML = template(data[0])
       })()
     </script>
 </body>
