@@ -67,7 +67,11 @@
         new Array(...document.querySelectorAll(".searchResultsRow"))
           .forEach((element) => {
                 element.onclick = () => {
-                  window.location = "/" + element.dataset.id
+                  window.location = "/" + btoa(JSON.stringify({
+                    id: element.dataset.id,
+                    name: element.dataset.name
+                  }))
+                    .replace("/", "_").replace("+", "-")
                 }
             })
 

@@ -27,7 +27,7 @@
 </div>
     <script>
       (async () => {
-        const id = window.location.pathname.substring(1)
+        const setupData = JSON.parse(atob(window.location.pathname.substring(1).replace("_", "/").replace("-", "+")))
 
         const templatePromise = fetch("/results.hbs")
           .then(p => p.text())
