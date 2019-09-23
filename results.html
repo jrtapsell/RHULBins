@@ -18,13 +18,13 @@
         [data-days="0"] {
             background: #ff000033;
         }
-        [data-days="-1"],
-        [data-days="-2"],
-        [data-days="-3"],
-        [data-days="-4"],
-        [data-days="-5"],
-        [data-days="-6"],
-        [data-days="-7"] {
+        [data-days="1"],
+        [data-days="2"],
+        [data-days="3"],
+        [data-days="4"],
+        [data-days="5"],
+        [data-days="6"],
+        [data-days="7"] {
             background: #ffff0033;
         }
     </style>
@@ -66,6 +66,8 @@
         ]
 
         const now = moment()
+          .startOf('day')
+        
         structuredData.forEach((item) => {
           const nextDate = moment(item.nextDate, 'DD/MM/YYYY')
           item.humanInfo = nextDate.fromNow()
