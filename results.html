@@ -39,8 +39,16 @@
         const data = await dataPromise
         const template = await templatePromise
 
+        const structuredData = [
+          {"name": "Food Waste", "color": "IDK", "nextDate": data[0].nextFoodWasteDate},
+          {"name": "General Waste", "color": "IDK", "nextDate": data[0].nextRefuseDate},
+          {"name": "Recycling", "color": "IDK", "nextDate": data[0].nextRecyclingDate},
+          {"name": "Garden Waste", "color": "IDK", "nextDate": data[0].nextGardenWasteDate},
+          {"name": "Textiles and Electricals", "color": "IDK", "nextDate": data[0].nextTextilesElectricalsDate},
+        ]
 
-        document.querySelector("#searchResults").innerHTML = template(data[0])
+
+        document.querySelector("#searchResults").innerHTML = template(structuredData)
       })()
     </script>
 </body>

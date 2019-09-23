@@ -1,8 +1,20 @@
-<h2>Collection is on {{collectionDay}}s</h2>
-<div>
-    <div>Food - {{nextFoodWasteDate}}</div>
-    <div>General - {{nextRefuseDate}}</div>
-    <div>Recycling - {{nextRecyclingDate}}</div>
-    <div>Garden - {{nextGardenWasteDate}}</div>
-    <div>Textiles - {{nextTextilesElectricalsDate}}</div>
-</div>
+<h2>Next collections</h2>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+    <tr>
+        <th class="mdl-data-table__cell--non-numeric">Name</th>
+        <th class="mdl-data-table__cell--non-numeric">Colour</th>
+        <th class="mdl-data-table__cell--non-numeric">Next Collection</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each this}}
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">{{name}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{color}}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{nextDate}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
