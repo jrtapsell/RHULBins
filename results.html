@@ -55,7 +55,7 @@
         structuredData.forEach((item) => {
           const nextDate = moment(item.nextDate, 'DD/MM/YYYY')
           item.humanInfo = nextDate.fromNow()
-          item.days = now.diff(nextDate, 'days')
+          item.days = nextDate.diff(now, 'days')
         })
 
 
