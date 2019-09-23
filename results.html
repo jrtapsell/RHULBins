@@ -14,6 +14,20 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
             integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
             crossorigin="anonymous"></script>
+    <style>
+        [data-days="0"] {
+            background: #ff000033;
+        }
+        [data-days="-1"],
+        [data-days="-2"],
+        [data-days="-3"],
+        [data-days="-4"],
+        [data-days="-5"],
+        [data-days="-6"],
+        [data-days="-7"] {
+            background: #ffff0033;
+        }
+    </style>
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -44,11 +58,11 @@
         const template = await templatePromise
 
         const structuredData = [
-          {"name": "Food Waste", "color": "IDK", "nextDate": data[0].nextFoodWasteDate},
-          {"name": "General Waste", "color": "IDK", "nextDate": data[0].nextRefuseDate},
-          {"name": "Recycling", "color": "IDK", "nextDate": data[0].nextRecyclingDate},
-          {"name": "Garden Waste", "color": "IDK", "nextDate": data[0].nextGardenWasteDate},
-          {"name": "Textiles and Electricals", "color": "IDK", "nextDate": data[0].nextTextilesElectricalsDate},
+          {"name": "Food Waste", "color": "Green Bin", "nextDate": data[0].nextFoodWasteDate},
+          {"name": "General Waste", "color": "Black Bin", "nextDate": data[0].nextRefuseDate},
+          {"name": "Recycling", "color": "Blue Bin", "nextDate": data[0].nextRecyclingDate},
+          {"name": "Garden Waste", "color": "Green Bag", "nextDate": data[0].nextGardenWasteDate},
+          {"name": "Textiles and Electricals", "color": "None", "nextDate": data[0].nextTextilesElectricalsDate},
         ]
 
         const now = moment()
