@@ -33,8 +33,11 @@
     <main class="mdl-layout__content">
         <div class="page-content">
             <form action="#" id="searchForm">
-                <label for="postcode">Postcode</label><input id="postcode" />
-                <input type="submit" value="Submit"/>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="postcode">
+                    <label class="mdl-textfield__label" for="postcode">Postcode</label>
+                </div>
+                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Submit</button>
             </form>
             <div id="searchResults"></div>
         </div>
