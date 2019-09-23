@@ -52,7 +52,7 @@
         ]
 
         structuredData.forEach((item) => {
-          const nextDate = moment(item, 'DD/MM/YYYY')
+          const nextDate = moment(item.nextDate, 'DD/MM/YYYY')
           item.humanInfo = nextDate.fromNow()
         })
 
