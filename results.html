@@ -51,9 +51,11 @@
           {"name": "Textiles and Electricals", "color": "IDK", "nextDate": data[0].nextTextilesElectricalsDate},
         ]
 
+        const now = moment()
         structuredData.forEach((item) => {
           const nextDate = moment(item.nextDate, 'DD/MM/YYYY')
           item.humanInfo = nextDate.fromNow()
+          item.days = now.diff(nextDate, 'days')
         })
 
 
