@@ -67,10 +67,10 @@
 
         const now = moment()
           .startOf('day')
-        
+
         structuredData.forEach((item) => {
           const nextDate = moment(item.nextDate, 'DD/MM/YYYY')
-          item.humanInfo = nextDate.fromNow()
+          item.humanInfo = nextDate.from(now)
           item.days = nextDate.diff(now, 'days')
         })
 
