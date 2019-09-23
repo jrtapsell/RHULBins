@@ -33,7 +33,7 @@
           .then(p => p.text())
           .then(p => Handlebars.compile(p))
 
-        const dataPromise = fetch("/api/lookup_bin_days.php?query=" + id)
+        const dataPromise = fetch("/api/lookup_bin_days.php?query=" + setupData.id)
           .then(p => p.json())
 
         const data = await dataPromise
@@ -48,7 +48,10 @@
         ]
 
 
-        document.querySelector("#searchResults").innerHTML = template(structuredData)
+        document.querySelector("#searchResults").innerHTML = template({
+          name: setupData.name,
+          data: structuredData
+        })
       })()
     </script>
 </body>
